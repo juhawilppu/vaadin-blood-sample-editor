@@ -5,6 +5,7 @@ import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
 import com.juhawilppu.bloodsampleditor.ui.component.SampleWindow.SampleWindowListener;
 import com.juhawilppu.bloodsampleditor.ui.util.GridAdapter;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
@@ -13,7 +14,8 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-public class BloodSampleEditor extends VerticalLayout implements SampleWindowListener {
+public class BloodSampleEditor extends VerticalLayout
+		implements SampleWindowListener {
 
 	private Plate plate;
 
@@ -39,6 +41,7 @@ public class BloodSampleEditor extends VerticalLayout implements SampleWindowLis
 		grid = new GridLayout(plateSettings.getNumberOfColumns() + 1,
 				plateSettings.getNumberOfRows() + 1);
 		grid.setMargin(false);
+		grid.addStyleName("editor-grid");
 
 		for (int column = 0; column <= plateSettings
 				.getNumberOfColumns(); column++) {
@@ -65,6 +68,7 @@ public class BloodSampleEditor extends VerticalLayout implements SampleWindowLis
 		}
 
 		addComponent(grid);
+		setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
 	}
 
 	private void populate() {
@@ -76,7 +80,7 @@ public class BloodSampleEditor extends VerticalLayout implements SampleWindowLis
 
 	private Label createLabel(String number) {
 		Label label = new Label(number);
-		label.addStyleName("number");
+		label.addStyleName("coordinate-titles");
 		setSize(label);
 		return label;
 	}

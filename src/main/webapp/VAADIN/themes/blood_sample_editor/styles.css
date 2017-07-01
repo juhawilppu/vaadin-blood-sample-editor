@@ -12502,49 +12502,60 @@ div.v-layout.v-horizontal.v-widget {
 	overflow: hidden;
 }
 
-.blood_sample_editor .well {
+.blood_sample_editor .editor-grid {
+	border: 2px solid black;
+	background: white;
+	padding-right: 25px;
+	padding-bottom: 25px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.blood_sample_editor .editor-grid .well {
 	border-radius: 50px;
 	border: 1px solid black;
 	padding-top: 4px;
 	padding-bottom: 6px;
 }
 
-.blood_sample_editor .well .info-text {
+.blood_sample_editor .editor-grid .well .info-text {
 	text-align: center;
 	color: white;
 	font-size: 11px;
 }
 
-.blood_sample_editor .well.non-empty {
+.blood_sample_editor .editor-grid .well.non-empty {
 	background: #2980b9;
 }
 
-.blood_sample_editor .well.non-empty:hover {
+.blood_sample_editor .editor-grid .well.non-empty:hover {
 	background: #3498db;
 }
 
-.blood_sample_editor .well.non-empty.selected {
+.blood_sample_editor .editor-grid .well.non-empty.selected {
 	border: 2px solid #2c3e50;
 	background: #a3cfec;
 }
 
-.blood_sample_editor .well.empty {
+.blood_sample_editor .editor-grid .well.empty {
 	background: #bdc3c7;
 }
 
-.blood_sample_editor .well.empty:hover {
+.blood_sample_editor .editor-grid .well.empty:hover {
 	background: #ecf0f1;
 }
 
-.blood_sample_editor .well.empty.selected {
+.blood_sample_editor .editor-grid .well.empty.selected {
 	border: 2px solid #2c3e50;
 	background: white;
 }
 
-.blood_sample_editor .number {
+.blood_sample_editor .editor-grid .coordinate-titles {
 	font-size: 2em;
+	font-weight: bold;
 	line-height: 2em;
-	font-family: Verdana;
+	font-family: "Verdana";
 	text-align: center;
 }
 

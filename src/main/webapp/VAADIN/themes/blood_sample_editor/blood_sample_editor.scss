@@ -3,53 +3,66 @@
 @mixin blood_sample_editor {
 	@include valo;
 	
-	.well {
-		border-radius: 50px;
-		border: 1px solid black;
+	.editor-grid {
+		border: 2px solid black;
+		background: white;
 
-		// Paddings are asymmetric on purpose because of optical illusion
-		padding-top: 4px;
-		padding-bottom: 6px;
-		
-		.info-text {
-			text-align: center;
-			color: white;
-			font-size: 11px;
-		}
-		
-		&.non-empty {
-			background: #2980b9;			
-			
-			&:hover {
-				background: #3498db;
-			}
-			
-			&.selected {
-				border: 2px solid #2c3e50;
-				background: #a3cfec;
-			}
-		}
-		
-		&.empty {		
-			background: #bdc3c7;
-			
-			&:hover {
-				background: #ecf0f1;
-			}
-			
-			&.selected {
-				border: 2px solid #2c3e50;
-				background: white;
-			}
-		}
+		// Center border visually because left and top has the titles
+		padding-right: 25px;
+		padding-bottom: 25px;
+		-webkit-box-sizing: border-box;
+	  	-moz-box-sizing: border-box;
+	  	box-sizing: border-box;
 	
-	}
+		.well {
+			border-radius: 50px;
+			border: 1px solid black;
+	
+			// Paddings are asymmetric on purpose because of optical illusion
+			padding-top: 4px;
+			padding-bottom: 6px;
+			
+			.info-text {
+				text-align: center;
+				color: white;
+				font-size: 11px;
+			}
+			
+			&.non-empty {
+				background: #2980b9;			
+				
+				&:hover {
+					background: #3498db;
+				}
+				
+				&.selected {
+					border: 2px solid #2c3e50;
+					background: #a3cfec;
+				}
+			}
+			
+			&.empty {		
+				background: #bdc3c7;
+				
+				&:hover {
+					background: #ecf0f1;
+				}
+				
+				&.selected {
+					border: 2px solid #2c3e50;
+					background: white;
+				}
+			}
 		
-	.number {
-		font-size: 2em;
-		line-height: 2em;
-		font-family: Verdana;
-	    text-align: center;
+		}
+			
+		.coordinate-titles {
+			font-size: 2em;
+			font-weight: bold;
+			line-height: 2em;
+			font-family: 'Verdana';
+		    text-align: center;
+		}
 	}
 	
 	.buttons-layout {
