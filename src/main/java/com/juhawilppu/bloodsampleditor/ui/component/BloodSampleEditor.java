@@ -8,6 +8,8 @@ import com.juhawilppu.bloodsampleditor.ui.util.GridAdapter;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
@@ -18,6 +20,8 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 	private GridLayout grid;
 	private PlateSettings plateSettings;
 	private GridAdapter adapter;
+
+	private SampleWindow sampleWindow;
 
 	public BloodSampleEditor(Plate plate) {
 		this.plate = plate;
@@ -84,9 +88,16 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 
 	private void openDialog(Well well) {
 
-		SampleWindow editWindow = new SampleWindow(well, plateSettings, this);
-		editWindow.addSaveListener(this);
-		UI.getCurrent().addWindow(editWindow);
+		if (sampleWindow != null) {
+			Notification.show("You can only open one edit window at a time",
+					Type.ERROR_MESSAGE);
+			return;
+		}
+
+		well.setSelected();
+		sampleWindow = new SampleWindow(well, plateSettings, this);
+		sampleWindow.addSaveListener(this);
+		UI.getCurrent().addWindow(sampleWindow);
 	}
 
 	public Sample getSample(String row, int column) {
@@ -104,5 +115,10 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 	public Well getWell(String row, int column) {
 		return (Well) grid.getComponent(adapter.convertColumnForGrid(column),
 				adapter.convertRowForGrid(row));
+	}
+
+	public void closeWindow(Well well) {
+		well.unselect();
+		sampleWindow = null;
 	}
 }
