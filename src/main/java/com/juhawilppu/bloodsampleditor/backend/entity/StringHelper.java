@@ -13,6 +13,9 @@ public class StringHelper {
 
 		int index = StringHelper.indexOfFirstNumber(string);
 
+		if (index == 0)
+			return string;
+
 		String beginning = string.substring(0, index);
 		String end = string.substring(index, string.length());
 		return beginning + "<br>" + end;
@@ -21,7 +24,12 @@ public class StringHelper {
 	private static int indexOfFirstNumber(String string) {
 		Matcher matcher = Pattern.compile("\\d+").matcher(string);
 		matcher.find();
-		return matcher.start(0);
+
+		try {
+			return matcher.start(0);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 
 	public static String formatNumber(BigDecimal number) {
