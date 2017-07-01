@@ -2,7 +2,6 @@ package com.juhawilppu.bloodsampleditor.backend.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.juhawilppu.bloodsampleditor.backend.entity.Plate;
@@ -15,7 +14,7 @@ import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
 public class PlateService {
 
 	public Plate getPlate(String plateId) {
-		List<Sample> samples = createSamples(plateId);		
+		List<Sample> samples = createSamples(plateId);
 		PlateSettings plateSettings = PlateSettings.create96();
 		Plate plate = new Plate(plateId, samples, plateSettings);
 		return plate;
