@@ -32,10 +32,12 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 
 		// GridLayout is the most light weight component for showing grid data.
 		// Use +1 to add space for title rows.
-		grid = new GridLayout(plateSettings.getNumberOfColumns() + 1, plateSettings.getNumberOfRows() + 1);
+		grid = new GridLayout(plateSettings.getNumberOfColumns() + 1,
+				plateSettings.getNumberOfRows() + 1);
 		grid.setMargin(false);
 
-		for (int column = 0; column <= plateSettings.getNumberOfColumns(); column++) {
+		for (int column = 0; column <= plateSettings
+				.getNumberOfColumns(); column++) {
 			for (int row = 0; row <= plateSettings.getNumberOfRows(); row++) {
 
 				if (column == 0 && row == 0)
@@ -43,9 +45,12 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 				if (row == 0 && column > 0)
 					grid.addComponent(createLabel(column + ""), column, row);
 				else if (column == 0 && row > 0)
-					grid.addComponent(createLabel(adapter.convertRowForPlate(row)), column, row);
+					grid.addComponent(
+							createLabel(adapter.convertRowForPlate(row)),
+							column, row);
 				else {
-					Well well = new Well(adapter.convertRowForPlate(row), column);
+					Well well = new Well(adapter.convertRowForPlate(row),
+							column);
 					setSize(well);
 					grid.addComponent(well, column, row);
 					well.addLayoutClickListener(event -> {
@@ -84,7 +89,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 		UI.getCurrent().addWindow(editWindow);
 	}
 
-	public Sample getSample(int column, String row) {
+	public Sample getSample(String row, int column) {
 		return getWell(row, column).getSample();
 	}
 
@@ -97,6 +102,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 	}
 
 	public Well getWell(String row, int column) {
-		return (Well) grid.getComponent(adapter.convertColumnForGrid(column), adapter.convertRowForGrid(row));
+		return (Well) grid.getComponent(adapter.convertColumnForGrid(column),
+				adapter.convertRowForGrid(row));
 	}
 }
