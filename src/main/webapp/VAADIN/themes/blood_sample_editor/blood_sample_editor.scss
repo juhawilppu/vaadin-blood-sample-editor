@@ -6,6 +6,10 @@
 	.well {
 		border-radius: 50px;
 		border: 1px solid black;
+
+		// Paddings are asymmetric on purpose because of optical illusion
+		padding-top: 4px;
+		padding-bottom: 6px;
 		
 		.info-text {
 			text-align: center;

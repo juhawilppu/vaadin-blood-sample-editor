@@ -12505,6 +12505,8 @@ div.v-layout.v-horizontal.v-widget {
 .blood_sample_editor .well {
 	border-radius: 50px;
 	border: 1px solid black;
+	padding-top: 4px;
+	padding-bottom: 6px;
 }
 
 .blood_sample_editor .well .info-text {

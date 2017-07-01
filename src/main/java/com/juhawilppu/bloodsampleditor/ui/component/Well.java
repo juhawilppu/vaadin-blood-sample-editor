@@ -75,6 +75,8 @@ public class Well extends VerticalLayout {
 		this.sample = null;
 		round.removeStyleName("non-empty");
 		round.addStyleName("empty");
+		sampleLabel.setValue("");
+		volumeLabel.setValue("");
 	}
 
 	public void setSelected() {
