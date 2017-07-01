@@ -1,0 +1,31 @@
+@import "../valo/valo.scss";
+
+@mixin blood_sample_editor {
+	@include valo;
+	
+	.well {
+		border-radius: 50px;
+		border: 1px solid black;
+		
+		&.non-empty {
+			background: #2980b9;			
+			&:hover {
+				background: #3498db;
+			}
+		}
+		
+		&.empty {		
+			background: #bdc3c7;
+			&:hover {
+				background: #ecf0f1;
+			}
+		}
+	}
+	
+	.number {
+		font-size: 2em;
+		line-height: 2em;
+		font-family: Verdana;
+	    text-align: center;
+	}
+}
