@@ -12504,6 +12504,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .blood_sample_editor .editor-grid {
 	border: 2px solid black;
+	border-radius: 15px;
 	background: white;
 	padding-right: 25px;
 	padding-bottom: 25px;
