@@ -41,4 +41,19 @@
 		font-family: Verdana;
 	    text-align: center;
 	}
+	
+	.buttons-layout {
+		margin-top: 20px;
+		float: right;
+	}
+	
+	// There is no reason to maximise the window and this hack is the only way to hide it
+	.disable-maximise {	
+		.v-window-header {
+			pointer-events: none;
+		}
+		.v-window-maximizebox {
+			display: none;
+		}
+	}
 }

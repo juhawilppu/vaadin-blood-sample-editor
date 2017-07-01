@@ -12539,3 +12539,16 @@ div.v-layout.v-horizontal.v-widget {
 	font-family: Verdana;
 	text-align: center;
 }
+
+.blood_sample_editor .buttons-layout {
+	margin-top: 20px;
+	float: right;
+}
+
+.blood_sample_editor .disable-maximise .v-window-header {
+	pointer-events: none;
+}
+
+.blood_sample_editor .disable-maximise .v-window-maximizebox {
+	display: none;
+}
