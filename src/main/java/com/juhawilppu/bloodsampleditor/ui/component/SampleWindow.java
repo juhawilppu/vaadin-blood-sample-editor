@@ -129,6 +129,12 @@ public class SampleWindow extends Window {
 		}
 	}
 
+	@Override
+	public void close() {
+		super.close();
+		wells96.closeWindow(well);
+	}
+
 	public void addSaveListener(SaveListener listener) {
 		saveListeners.add(listener);
 	}

@@ -57,4 +57,11 @@ public class Well extends VerticalLayout {
 		round.addStyleName("empty");
 	}
 
+	public void setSelected() {
+		round.addStyleName("selected");
+	}
+
+	public void unselect() {
+		round.removeStyleName("selected");
+	}
 }
