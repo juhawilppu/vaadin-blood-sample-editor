@@ -97,8 +97,12 @@ public class SampleWindow extends Window {
 		center();
 		addBindings();
 
-		if (!isNew)
+		if (isNew) {
+			row.setValue(well.getRow());
+			column.setValue(well.getColumn() + "");
+		} else {
 			populate();
+		}
 	}
 
 	private void addBindings() {
@@ -140,6 +144,8 @@ public class SampleWindow extends Window {
 
 		try {
 
+			binder.validate();
+
 			// Use testSample because then we can read values using the
 			// converters
 			Sample testSample = new Sample();
@@ -166,9 +172,8 @@ public class SampleWindow extends Window {
 			close();
 
 		} catch (ValidationException e) {
-			Notification.show(
-					"Please check that are fields are filled properly.",
-					Type.ERROR_MESSAGE);
+			// The fields will already show the errors, no need to add a
+			// notification here
 		}
 	}
 
