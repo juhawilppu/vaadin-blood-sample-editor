@@ -55,18 +55,8 @@ public class Sample {
 		return column;
 	}
 
-	// TODO Hack because of TextField only supports Strings
-	public String getColumnString() {
-		return getColumn() + "";
-	}
-
 	public void setColumn(int column) {
 		this.column = column;
-	}
-
-	// TODO Hack because of TextField only supports Strings
-	public void setColumnString(String column) {
-		setColumn(Integer.parseInt(column));
 	}
 
 	public BigDecimal getVolume() {
@@ -75,15 +65,6 @@ public class Sample {
 
 	public void setVolume(BigDecimal volume) {
 		this.volume = volume;
-	}
-
-	// TODO Hack because of TextField only supports Strings
-	public String getVolumeString() {
-		return getVolume() + "";
-	}
-
-	public void setVolumeString(String volume) {
-		setVolume(new BigDecimal(volume));
 	}
 
 	@Override

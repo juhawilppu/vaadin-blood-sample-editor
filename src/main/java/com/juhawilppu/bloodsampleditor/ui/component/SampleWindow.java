@@ -1,5 +1,6 @@
 package com.juhawilppu.bloodsampleditor.ui.component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
 import com.juhawilppu.bloodsampleditor.ui.util.LocationValidator;
 import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
+import com.vaadin.data.converter.StringToBigDecimalConverter;
 import com.vaadin.data.converter.StringToIntegerConverter;
+import com.vaadin.data.validator.BigDecimalRangeValidator;
 import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Button;
@@ -24,6 +27,7 @@ public class SampleWindow extends Window {
 	Sample sample;
 
 	BloodSampleEditor wells96;
+	PlateSettings plateSettings;
 
 	List<SaveListener> saveListeners;
 	Binder<Sample> binder;
@@ -33,24 +37,35 @@ public class SampleWindow extends Window {
 	TextField column;
 	TextField volume;
 
+	boolean isNew;
+
 	interface SaveListener {
 		public void save(Sample sample, Well well);
 	}
 
 	public SampleWindow(Well well, PlateSettings plateSettings,
 			BloodSampleEditor wells96) {
+
 		this.well = well;
 		this.sample = well.getSample();
-		if (sample == null) {
-			sample = new Sample();
-		}
+		this.plateSettings = plateSettings;
 		this.wells96 = wells96;
 
-		binder = new Binder<>();
+		isNew = sample == null;
 
 		saveListeners = new ArrayList<SaveListener>();
 
-		setCaption("Edit sample");
+		if (isNew) {
+			// TODO This will cause volume to be zero at the beginning. It
+			// should be null instead, but it throws an exception. The converter
+			// or the validator must be changed.
+			sample = new Sample("", "", well.getRow(), well.getColumn(),
+					BigDecimal.ZERO);
+			setCaption("Add sample");
+		} else {
+			setCaption("Edit sample");
+		}
+
 		setWidth(300, Unit.PIXELS);
 
 		FormLayout subContent = new FormLayout();
@@ -58,41 +73,67 @@ public class SampleWindow extends Window {
 		setContent(subContent);
 
 		sampleId = new TextField("Sample Id");
+		subContent.addComponent(sampleId);
+
+		row = new TextField("Row");
+		subContent.addComponent(row);
+
+		column = new TextField("Column");
+		subContent.addComponent(column);
+
+		volume = new TextField("Volume (ml)");
+		subContent.addComponent(volume);
+
+		Button saveButton = new Button("Save");
+		saveButton.setIcon(VaadinIcons.CHECK);
+		saveButton.addClickListener(e -> save());
+		subContent.addComponent(saveButton);
+
+		Button cancelButton = new Button("Cancel");
+		cancelButton.setIcon(VaadinIcons.CLOSE);
+		cancelButton.addClickListener(e -> close());
+		subContent.addComponent(cancelButton);
+
+		center();
+		addBindings();
+
+		if (!isNew)
+			populate();
+	}
+
+	private void addBindings() {
+		binder = new Binder<>();
+
 		binder.forField(sampleId)
 				.withValidator(new StringLengthValidator(
 						"Sample Id must be between 1 and 20 characters long.",
 						1, 20))
 				.bind(Sample::getSampleId, Sample::setSampleId);
-		subContent.addComponent(sampleId);
 
-		row = new TextField("Row");
 		binder.forField(row)
 				.withConverter(String::toUpperCase, String::toUpperCase)
 				.withValidator(
 						new LocationValidator<String>(plateSettings.getRows()))
 				.bind(Sample::getRow, Sample::setRow);
-		subContent.addComponent(row);
 
-		column = new TextField("Column");
 		binder.forField(column)
 				.withConverter(new StringToIntegerConverter("Must be a number"))
 				.withValidator(new LocationValidator<Integer>(
 						plateSettings.getColumns()))
 				.bind(Sample::getColumn, Sample::setColumn);
-		subContent.addComponent(column);
 
-		volume = new TextField("Volume");
-		binder.bind(volume, Sample::getVolumeString, Sample::setVolumeString);
-		subContent.addComponent(volume);
+		BigDecimalRangeValidator volumeValidator = new BigDecimalRangeValidator(
+				"Must be a positive number", BigDecimal.ZERO, null);
+		volumeValidator.setMinValueIncluded(false);
+		binder.forField(volume)
+				.withConverter(new StringToBigDecimalConverter(BigDecimal.ZERO,
+						"Must be a positive number"))
+				.withValidator(volumeValidator)
+				.bind(Sample::getVolume, Sample::setVolume);
+	}
 
-		Button saveButton = new Button("Save");
-		saveButton.setIcon(VaadinIcons.DISC);
-		saveButton.addClickListener(e -> save());
-		subContent.addComponent(saveButton);
-
+	private void populate() {
 		binder.readBean(sample);
-
-		center();
 	}
 
 	private void save() {
@@ -125,7 +166,9 @@ public class SampleWindow extends Window {
 			close();
 
 		} catch (ValidationException e) {
-			Notification.show("Error in saving");
+			Notification.show(
+					"Please check that are fields are filled properly.",
+					Type.ERROR_MESSAGE);
 		}
 	}
 
