@@ -1,5 +1,3 @@
-# vaadin-blood-sample-editor
-
 # Running the project
 
 `gradle vaadinRun`
@@ -10,4 +8,4 @@ Open http://localhost:8080/ to view the application.
 
 # Running unit tests
 
-TODO
+`gradle test`
