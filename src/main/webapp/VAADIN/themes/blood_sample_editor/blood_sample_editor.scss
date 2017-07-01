@@ -7,6 +7,12 @@
 		border-radius: 50px;
 		border: 1px solid black;
 		
+		.info-text {
+			text-align: center;
+			color: white;
+			font-size: 11px;
+		}
+		
 		&.non-empty {
 			background: #2980b9;			
 			

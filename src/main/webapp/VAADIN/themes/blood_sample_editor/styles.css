@@ -12507,6 +12507,12 @@ div.v-layout.v-horizontal.v-widget {
 	border: 1px solid black;
 }
 
+.blood_sample_editor .well .info-text {
+	text-align: center;
+	color: white;
+	font-size: 11px;
+}
+
 .blood_sample_editor .well.non-empty {
 	background: #2980b9;
 }

@@ -1,6 +1,12 @@
 package com.juhawilppu.bloodsampleditor.ui.component;
 
+import java.math.RoundingMode;
+
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
+import com.juhawilppu.bloodsampleditor.backend.entity.StringHelper;
+import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 public class Well extends VerticalLayout {
@@ -10,6 +16,8 @@ public class Well extends VerticalLayout {
 	private Sample sample;
 
 	VerticalLayout round;
+	private Label sampleLabel;
+	private Label volumeLabel;
 
 	public Well(String row, int column) {
 
@@ -24,6 +32,18 @@ public class Well extends VerticalLayout {
 		round.setWidth(90, Unit.PERCENTAGE);
 		addComponent(round);
 
+		sampleLabel = new Label("");
+		sampleLabel.addStyleName("info-text");
+		sampleLabel.setContentMode(ContentMode.HTML);
+		round.addComponent(sampleLabel);
+		round.setComponentAlignment(sampleLabel, Alignment.MIDDLE_CENTER);
+
+		volumeLabel = new Label("");
+		volumeLabel.setContentMode(ContentMode.HTML);
+		volumeLabel.addStyleName("info-text");
+		round.addComponent(volumeLabel);
+		round.setComponentAlignment(volumeLabel, Alignment.MIDDLE_CENTER);
+
 		round.addStyleName("empty");
 	}
 
@@ -35,8 +55,10 @@ public class Well extends VerticalLayout {
 		round.removeStyleName("empty");
 		round.addStyleName("non-empty");
 
-		// addComponent(new Label(sample.getPlateId()));
-		// addComponent(new Label(sample.getSampleId()));
+		sampleLabel.setValue(
+				StringHelper.breakLineBeforeFirstNumber(sample.getSampleId()));
+		volumeLabel.setValue(
+				sample.getVolume().setScale(2, RoundingMode.HALF_UP) + " ml");
 	}
 
 	public Sample getSample() {
