@@ -3,9 +3,9 @@ package com.juhawilppu.bloodsampleditor.ui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.ui.util.ColumnValidator;
-import com.juhawilppu.bloodsampleditor.ui.util.RowValidator;
+import com.juhawilppu.bloodsampleditor.ui.util.LocationValidator;
 import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
 import com.vaadin.data.converter.StringToIntegerConverter;
@@ -37,7 +37,7 @@ public class SampleWindow extends Window {
 		public void save(Sample sample, Well well);
 	}
 
-	public SampleWindow(Well well, BloodSampleEditor wells96) {
+	public SampleWindow(Well well, PlateSettings plateSettings, BloodSampleEditor wells96) {
 		this.well = well;
 		this.sample = well.getSample();
 		if (sample == null) {
@@ -58,21 +58,18 @@ public class SampleWindow extends Window {
 
 		sampleId = new TextField("Sample Id");
 		binder.forField(sampleId)
-				.withValidator(new StringLengthValidator(
-						"Sample Id must be between 1 and 20 characters long.",
-						1, 20))
+				.withValidator(new StringLengthValidator("Sample Id must be between 1 and 20 characters long.", 1, 20))
 				.bind(Sample::getSampleId, Sample::setSampleId);
 		subContent.addComponent(sampleId);
 
 		row = new TextField("Row");
-		binder.forField(row).withValidator(new RowValidator())
-				.bind(Sample::getRow, Sample::setRow);
+		binder.forField(row).withValidator(new LocationValidator<String>(plateSettings.getRows())).bind(Sample::getRow,
+				Sample::setRow);
 		subContent.addComponent(row);
 
 		column = new TextField("Column");
-		binder.forField(column)
-				.withConverter(new StringToIntegerConverter("Must be a number"))
-				.withValidator(new ColumnValidator())
+		binder.forField(column).withConverter(new StringToIntegerConverter("Must be a number"))
+				.withValidator(new LocationValidator<Integer>(plateSettings.getColumns()))
 				.bind(Sample::getColumn, Sample::setColumn);
 		subContent.addComponent(column);
 
@@ -98,8 +95,7 @@ public class SampleWindow extends Window {
 
 			Sample existingSample = wells96.getSample(newColumn, newRow);
 
-			boolean isAcceptableLocation = existingSample == null
-					|| existingSample == sample;
+			boolean isAcceptableLocation = existingSample == null || existingSample == sample;
 			if (!isAcceptableLocation) {
 				Notification.show(
 						"New location is not acceptable because the location is already taken by another sample.",

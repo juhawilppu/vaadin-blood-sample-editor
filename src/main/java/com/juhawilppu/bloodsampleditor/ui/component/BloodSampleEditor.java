@@ -21,7 +21,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 
 	public BloodSampleEditor(Plate plate) {
 		this.plate = plate;
-		this.plateSettings = plate.getPlateSettings();		
+		this.plateSettings = plate.getPlateSettings();
 		this.adapter = new GridAdapter(plateSettings);
 
 		drawEmptyPlate();
@@ -29,7 +29,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 	}
 
 	private void drawEmptyPlate() {
-		
+
 		// GridLayout is the most light weight component for showing grid data.
 		// Use +1 to add space for title rows.
 		grid = new GridLayout(plateSettings.getNumberOfColumns() + 1, plateSettings.getNumberOfRows() + 1);
@@ -64,7 +64,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 			well.setSample(sample);
 		}
 	}
-	
+
 	private Label createLabel(String number) {
 		Label label = new Label(number);
 		label.addStyleName("number");
@@ -79,7 +79,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 
 	private void openDialog(Well well) {
 
-		SampleWindow editWindow = new SampleWindow(well, this);
+		SampleWindow editWindow = new SampleWindow(well, plateSettings, this);
 		editWindow.addSaveListener(this);
 		UI.getCurrent().addWindow(editWindow);
 	}
