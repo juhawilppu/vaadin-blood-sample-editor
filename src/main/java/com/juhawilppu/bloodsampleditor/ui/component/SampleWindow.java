@@ -16,6 +16,7 @@ import com.vaadin.data.validator.StringLengthValidator;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
@@ -29,7 +30,7 @@ public class SampleWindow extends Window {
 	BloodSampleEditor wells96;
 	PlateSettings plateSettings;
 
-	List<SaveListener> saveListeners;
+	List<SampleWindowListener> listeners;
 	Binder<Sample> binder;
 
 	TextField sampleId;
@@ -39,8 +40,10 @@ public class SampleWindow extends Window {
 
 	boolean isNew;
 
-	interface SaveListener {
+	interface SampleWindowListener {
 		public void save(Sample sample, Well well);
+
+		public void close(Well well);
 	}
 
 	public SampleWindow(Well well, PlateSettings plateSettings,
@@ -52,8 +55,10 @@ public class SampleWindow extends Window {
 		this.wells96 = wells96;
 
 		isNew = sample == null;
+		listeners = new ArrayList<SampleWindowListener>();
 
-		saveListeners = new ArrayList<SaveListener>();
+		setModal(true);
+		addStyleName("disable-maximise");
 
 		if (isNew) {
 			// TODO This will cause volume to be zero at the beginning. It
@@ -66,7 +71,7 @@ public class SampleWindow extends Window {
 			setCaption("Edit sample");
 		}
 
-		setWidth(300, Unit.PIXELS);
+		setWidth(350, Unit.PIXELS);
 
 		FormLayout subContent = new FormLayout();
 		subContent.setMargin(true);
@@ -84,15 +89,20 @@ public class SampleWindow extends Window {
 		volume = new TextField("Volume (ml)");
 		subContent.addComponent(volume);
 
+		HorizontalLayout buttonsLayout = new HorizontalLayout();
+		buttonsLayout.addStyleName("buttons-layout");
+
 		Button saveButton = new Button("Save");
 		saveButton.setIcon(VaadinIcons.CHECK);
 		saveButton.addClickListener(e -> save());
-		subContent.addComponent(saveButton);
+		buttonsLayout.addComponent(saveButton);
 
 		Button cancelButton = new Button("Cancel");
 		cancelButton.setIcon(VaadinIcons.CLOSE);
 		cancelButton.addClickListener(e -> close());
-		subContent.addComponent(cancelButton);
+		buttonsLayout.addComponent(cancelButton);
+
+		subContent.addComponent(buttonsLayout);
 
 		center();
 		addBindings();
@@ -165,7 +175,7 @@ public class SampleWindow extends Window {
 
 			binder.writeBean(sample);
 
-			for (SaveListener listener : saveListeners) {
+			for (SampleWindowListener listener : listeners) {
 				listener.save(sample, well);
 			}
 
@@ -180,10 +190,13 @@ public class SampleWindow extends Window {
 	@Override
 	public void close() {
 		super.close();
-		wells96.closeWindow(well);
+
+		for (SampleWindowListener listener : listeners) {
+			listener.close(well);
+		}
 	}
 
-	public void addSaveListener(SaveListener listener) {
-		saveListeners.add(listener);
+	public void addSampleWindowListener(SampleWindowListener listener) {
+		listeners.add(listener);
 	}
 }

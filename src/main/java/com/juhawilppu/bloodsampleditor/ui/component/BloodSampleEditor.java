@@ -3,7 +3,7 @@ package com.juhawilppu.bloodsampleditor.ui.component;
 import com.juhawilppu.bloodsampleditor.backend.entity.Plate;
 import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.ui.component.SampleWindow.SaveListener;
+import com.juhawilppu.bloodsampleditor.ui.component.SampleWindow.SampleWindowListener;
 import com.juhawilppu.bloodsampleditor.ui.util.GridAdapter;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
@@ -13,7 +13,7 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-public class BloodSampleEditor extends VerticalLayout implements SaveListener {
+public class BloodSampleEditor extends VerticalLayout implements SampleWindowListener {
 
 	private Plate plate;
 
@@ -96,7 +96,7 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 
 		well.setSelected();
 		sampleWindow = new SampleWindow(well, plateSettings, this);
-		sampleWindow.addSaveListener(this);
+		sampleWindow.addSampleWindowListener(this);
 		UI.getCurrent().addWindow(sampleWindow);
 	}
 
@@ -117,7 +117,8 @@ public class BloodSampleEditor extends VerticalLayout implements SaveListener {
 				adapter.convertRowForGrid(row));
 	}
 
-	public void closeWindow(Well well) {
+	@Override
+	public void close(Well well) {
 		well.unselect();
 		sampleWindow = null;
 	}
