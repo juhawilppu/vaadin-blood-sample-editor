@@ -37,7 +37,8 @@ public class SampleWindow extends Window {
 		public void save(Sample sample, Well well);
 	}
 
-	public SampleWindow(Well well, PlateSettings plateSettings, BloodSampleEditor wells96) {
+	public SampleWindow(Well well, PlateSettings plateSettings,
+			BloodSampleEditor wells96) {
 		this.well = well;
 		this.sample = well.getSample();
 		if (sample == null) {
@@ -58,18 +59,25 @@ public class SampleWindow extends Window {
 
 		sampleId = new TextField("Sample Id");
 		binder.forField(sampleId)
-				.withValidator(new StringLengthValidator("Sample Id must be between 1 and 20 characters long.", 1, 20))
+				.withValidator(new StringLengthValidator(
+						"Sample Id must be between 1 and 20 characters long.",
+						1, 20))
 				.bind(Sample::getSampleId, Sample::setSampleId);
 		subContent.addComponent(sampleId);
 
 		row = new TextField("Row");
-		binder.forField(row).withValidator(new LocationValidator<String>(plateSettings.getRows())).bind(Sample::getRow,
-				Sample::setRow);
+		binder.forField(row)
+				.withConverter(String::toUpperCase, String::toUpperCase)
+				.withValidator(
+						new LocationValidator<String>(plateSettings.getRows()))
+				.bind(Sample::getRow, Sample::setRow);
 		subContent.addComponent(row);
 
 		column = new TextField("Column");
-		binder.forField(column).withConverter(new StringToIntegerConverter("Must be a number"))
-				.withValidator(new LocationValidator<Integer>(plateSettings.getColumns()))
+		binder.forField(column)
+				.withConverter(new StringToIntegerConverter("Must be a number"))
+				.withValidator(new LocationValidator<Integer>(
+						plateSettings.getColumns()))
 				.bind(Sample::getColumn, Sample::setColumn);
 		subContent.addComponent(column);
 
@@ -90,12 +98,17 @@ public class SampleWindow extends Window {
 	private void save() {
 
 		try {
-			int newColumn = Integer.parseInt(column.getValue());
-			String newRow = row.getValue();
 
-			Sample existingSample = wells96.getSample(newColumn, newRow);
+			// Use testSample because then we can read values using the
+			// converters
+			Sample testSample = new Sample();
+			binder.writeBean(testSample);
 
-			boolean isAcceptableLocation = existingSample == null || existingSample == sample;
+			Sample existingSample = wells96.getSample(testSample.getRow(),
+					testSample.getColumn());
+
+			boolean isAcceptableLocation = existingSample == null
+					|| existingSample == sample;
 			if (!isAcceptableLocation) {
 				Notification.show(
 						"New location is not acceptable because the location is already taken by another sample.",
