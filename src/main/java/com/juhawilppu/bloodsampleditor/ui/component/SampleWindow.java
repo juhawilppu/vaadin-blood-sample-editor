@@ -22,12 +22,16 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
 
+/**
+ * SampleWindow is used in modifying existing samples or adding new samples to
+ * the editor.
+ */
 public class SampleWindow extends Window {
 
 	Well well;
 	Sample sample;
 
-	BloodSampleEditor wells96;
+	SampleFetcher editor;
 	PlateSettings plateSettings;
 
 	List<SampleWindowListener> listeners;
@@ -47,12 +51,12 @@ public class SampleWindow extends Window {
 	}
 
 	public SampleWindow(Well well, PlateSettings plateSettings,
-			BloodSampleEditor wells96) {
+			SampleFetcher editor) {
 
 		this.well = well;
 		this.sample = well.getSample();
 		this.plateSettings = plateSettings;
-		this.wells96 = wells96;
+		this.editor = editor;
 
 		isNew = sample == null;
 		listeners = new ArrayList<SampleWindowListener>();
@@ -118,6 +122,7 @@ public class SampleWindow extends Window {
 	private void addBindings() {
 		binder = new Binder<>();
 
+		// TODO sampleId is missing validation for uniqueness.
 		binder.forField(sampleId)
 				.withValidator(new StringLengthValidator(
 						"Sample Id must be between 1 and 20 characters long.",
@@ -156,38 +161,43 @@ public class SampleWindow extends Window {
 	private void save() {
 
 		try {
-
 			binder.validate();
 
-			// Use testSample because then we can read values using the
-			// converters
-			Sample testSample = new Sample();
-			binder.writeBean(testSample);
-
-			Sample existingSample = wells96.getSample(testSample.getRow(),
-					testSample.getColumn());
-
-			boolean isAcceptableLocation = existingSample == null
-					|| existingSample == sample;
-			if (!isAcceptableLocation) {
+			// TODO move this validation to the fields
+			if (!isAcceptableLocation()) {
 				Notification.show(
-						"New location is not acceptable because the location is already taken by another sample.",
+						"Given location is not acceptable because the location is already occupied by another sample.",
 						Type.ERROR_MESSAGE);
 				return;
 			}
 
 			binder.writeBean(sample);
-
 			for (SampleWindowListener listener : listeners) {
 				listener.save(sample, well);
 			}
-
 			close();
 
 		} catch (ValidationException e) {
 			// The fields will already show the errors, no need to add a
 			// notification here
 		}
+	}
+
+	private boolean isAcceptableLocation() {
+		// Use testSample because then we can read column and row values using
+		// the converters and we won't override the data in the sample
+		Sample testSample = new Sample();
+		try {
+			binder.writeBean(testSample);
+		} catch (Exception e) {
+			// This problem will be handled by other validation than this
+			return true;
+		}
+
+		Sample existingSample = editor.getSample(testSample.getRow(),
+				testSample.getColumn());
+
+		return existingSample == null || existingSample == sample;
 	}
 
 	@Override

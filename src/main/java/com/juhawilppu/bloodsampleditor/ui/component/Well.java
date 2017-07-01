@@ -7,6 +7,10 @@ import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
+/**
+ * Well is the UI presentation of a well. It might contain a sample or it might
+ * be empty.
+ */
 public class Well extends VerticalLayout {
 
 	private String row;

@@ -14,8 +14,12 @@ import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
+/**
+ * BloodSampleEditor contains the grid, or plate, of blood samples.
+ *
+ */
 public class BloodSampleEditor extends VerticalLayout
-		implements SampleWindowListener {
+		implements SampleWindowListener, SampleFetcher {
 
 	private Plate plate;
 
