@@ -131,17 +131,20 @@ public class SampleWindow extends Window {
 				.bind(Sample::getRow, Sample::setRow);
 
 		binder.forField(column)
-				.withConverter(new StringToIntegerConverter("Must be a number"))
+				.withConverter(
+						new StringToIntegerConverter("Must be a number."))
 				.withValidator(new LocationValidator<Integer>(
 						plateSettings.getColumns()))
 				.bind(Sample::getColumn, Sample::setColumn);
 
 		BigDecimalRangeValidator volumeValidator = new BigDecimalRangeValidator(
-				"Must be a positive number", BigDecimal.ZERO, null);
+				"Must be larger than 0 and less than 100.", BigDecimal.ZERO,
+				new BigDecimal(100));
 		volumeValidator.setMinValueIncluded(false);
+		volumeValidator.setMaxValueIncluded(false);
 		binder.forField(volume)
 				.withConverter(new StringToBigDecimalConverter(BigDecimal.ZERO,
-						"Must be a positive number"))
+						"Must be a positive number."))
 				.withValidator(volumeValidator)
 				.bind(Sample::getVolume, Sample::setVolume);
 	}

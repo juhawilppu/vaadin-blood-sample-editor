@@ -1,7 +1,5 @@
 package com.juhawilppu.bloodsampleditor.ui.component;
 
-import java.math.RoundingMode;
-
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
 import com.juhawilppu.bloodsampleditor.backend.entity.StringHelper;
 import com.vaadin.shared.ui.ContentMode;
@@ -58,7 +56,7 @@ public class Well extends VerticalLayout {
 		sampleLabel.setValue(
 				StringHelper.breakLineBeforeFirstNumber(sample.getSampleId()));
 		volumeLabel.setValue(
-				sample.getVolume().setScale(2, RoundingMode.HALF_UP) + " ml");
+				StringHelper.formatNumber(sample.getVolume()) + " ml");
 	}
 
 	public Sample getSample() {
