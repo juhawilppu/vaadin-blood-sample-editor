@@ -1,4 +1,4 @@
-package com.juhawilppu;
+package com.juhawilppu.bloodsampleeditor.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 
 import org.junit.Test;
 
-import com.juhawilppu.bloodsampleditor.ui.component.WellHelper;
+import com.juhawilppu.bloodsampleeditor.ui.component.WellHelper;
 
 public class TestVolume {
 

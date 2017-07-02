@@ -1,4 +1,4 @@
-package com.juhawilppu.bloodsampleditor.ui.component;
+package com.juhawilppu.bloodsampleeditor.ui.component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

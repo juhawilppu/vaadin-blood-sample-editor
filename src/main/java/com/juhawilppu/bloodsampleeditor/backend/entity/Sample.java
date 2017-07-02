@@ -1,4 +1,4 @@
-package com.juhawilppu.bloodsampleditor.backend.entity;
+package com.juhawilppu.bloodsampleeditor.backend.entity;
 
 import java.math.BigDecimal;
 

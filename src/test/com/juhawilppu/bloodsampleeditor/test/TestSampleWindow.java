@@ -1,10 +1,10 @@
-package com.juhawilppu;
+package com.juhawilppu.bloodsampleeditor.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Sample;
 import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
 import com.vaadin.ui.TextField;

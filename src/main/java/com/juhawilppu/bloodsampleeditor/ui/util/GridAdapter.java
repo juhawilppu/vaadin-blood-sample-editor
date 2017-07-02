@@ -1,6 +1,6 @@
-package com.juhawilppu.bloodsampleditor.ui.util;
+package com.juhawilppu.bloodsampleeditor.ui.util;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
+import com.juhawilppu.bloodsampleeditor.backend.entity.PlateSettings;
 
 /**
  * This adapter does the coordinates mapping between Grid UI component and the

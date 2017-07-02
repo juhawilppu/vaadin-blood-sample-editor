@@ -1,12 +1,12 @@
-package com.juhawilppu.bloodsampleditor.ui.component;
+package com.juhawilppu.bloodsampleeditor.ui.component;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
-import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.ui.util.LocationValidator;
+import com.juhawilppu.bloodsampleeditor.backend.entity.PlateSettings;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Sample;
+import com.juhawilppu.bloodsampleeditor.ui.util.LocationValidator;
 import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
 import com.vaadin.data.converter.StringToBigDecimalConverter;

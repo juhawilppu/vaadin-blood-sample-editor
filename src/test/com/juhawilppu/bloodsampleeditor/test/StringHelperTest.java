@@ -1,10 +1,10 @@
-package com.juhawilppu;
+package com.juhawilppu.bloodsampleeditor.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.juhawilppu.bloodsampleditor.ui.util.StringHelper;
+import com.juhawilppu.bloodsampleeditor.ui.util.StringHelper;
 
 public class StringHelperTest {
 

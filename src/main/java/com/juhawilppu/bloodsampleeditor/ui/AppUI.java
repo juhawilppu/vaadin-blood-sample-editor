@@ -1,8 +1,8 @@
-package com.juhawilppu.bloodsampleditor.ui;
+package com.juhawilppu.bloodsampleeditor.ui;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.Plate;
-import com.juhawilppu.bloodsampleditor.backend.service.PlateService;
-import com.juhawilppu.bloodsampleditor.ui.component.BloodSampleEditor;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Plate;
+import com.juhawilppu.bloodsampleeditor.backend.service.PlateService;
+import com.juhawilppu.bloodsampleeditor.ui.component.BloodSampleEditor;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.server.VaadinRequest;

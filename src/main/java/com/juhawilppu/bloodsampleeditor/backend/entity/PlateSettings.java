@@ -1,11 +1,11 @@
-package com.juhawilppu.bloodsampleditor.backend.entity;
+package com.juhawilppu.bloodsampleeditor.backend.entity;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 
-import com.juhawilppu.bloodsampleditor.ui.util.StringHelper;
+import com.juhawilppu.bloodsampleeditor.ui.util.StringHelper;
 
 public class PlateSettings {
 

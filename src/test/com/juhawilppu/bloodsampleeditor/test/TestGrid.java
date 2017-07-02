@@ -1,4 +1,4 @@
-package com.juhawilppu;
+package com.juhawilppu.bloodsampleeditor.test;
 
 import static org.junit.Assert.*;
 
@@ -8,10 +8,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.Plate;
-import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
-import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.ui.component.BloodSampleEditor;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Plate;
+import com.juhawilppu.bloodsampleeditor.backend.entity.PlateSettings;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Sample;
+import com.juhawilppu.bloodsampleeditor.ui.component.BloodSampleEditor;
 
 public class TestGrid {
 	

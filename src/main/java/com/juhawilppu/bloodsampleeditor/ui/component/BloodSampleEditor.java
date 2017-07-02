@@ -1,10 +1,10 @@
-package com.juhawilppu.bloodsampleditor.ui.component;
+package com.juhawilppu.bloodsampleeditor.ui.component;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.Plate;
-import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
-import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.ui.component.SampleWindow.SampleWindowListener;
-import com.juhawilppu.bloodsampleditor.ui.util.GridAdapter;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Plate;
+import com.juhawilppu.bloodsampleeditor.backend.entity.PlateSettings;
+import com.juhawilppu.bloodsampleeditor.backend.entity.Sample;
+import com.juhawilppu.bloodsampleeditor.ui.component.SampleWindow.SampleWindowListener;
+import com.juhawilppu.bloodsampleeditor.ui.util.GridAdapter;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.GridLayout;
