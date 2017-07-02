@@ -12526,17 +12526,417 @@ div.v-layout.v-horizontal.v-widget {
 	font-size: 11px;
 }
 
-.blood_sample_editor .editor-grid .well.non-empty {
-	background: #2980b9;
-}
-
 .blood_sample_editor .editor-grid .well.non-empty:hover {
-	background: #3498db;
+	background: #e74c3c !important;
 }
 
 .blood_sample_editor .editor-grid .well.non-empty.selected {
 	border: 2px solid #2c3e50;
 	background: #a3cfec;
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-0 {
+	background: rgba(192, 57, 43, 0);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-1 {
+	background: rgba(192, 57, 43, 0.01);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-2 {
+	background: rgba(192, 57, 43, 0.02);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-3 {
+	background: rgba(192, 57, 43, 0.03);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-4 {
+	background: rgba(192, 57, 43, 0.04);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-5 {
+	background: rgba(192, 57, 43, 0.05);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-6 {
+	background: rgba(192, 57, 43, 0.06);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-7 {
+	background: rgba(192, 57, 43, 0.07);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-8 {
+	background: rgba(192, 57, 43, 0.08);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-9 {
+	background: rgba(192, 57, 43, 0.09);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-10 {
+	background: rgba(192, 57, 43, 0.1);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-11 {
+	background: rgba(192, 57, 43, 0.11);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-12 {
+	background: rgba(192, 57, 43, 0.12);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-13 {
+	background: rgba(192, 57, 43, 0.13);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-14 {
+	background: rgba(192, 57, 43, 0.14);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-15 {
+	background: rgba(192, 57, 43, 0.15);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-16 {
+	background: rgba(192, 57, 43, 0.16);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-17 {
+	background: rgba(192, 57, 43, 0.17);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-18 {
+	background: rgba(192, 57, 43, 0.18);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-19 {
+	background: rgba(192, 57, 43, 0.19);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-20 {
+	background: rgba(192, 57, 43, 0.2);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-21 {
+	background: rgba(192, 57, 43, 0.21);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-22 {
+	background: rgba(192, 57, 43, 0.22);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-23 {
+	background: rgba(192, 57, 43, 0.23);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-24 {
+	background: rgba(192, 57, 43, 0.24);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-25 {
+	background: rgba(192, 57, 43, 0.25);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-26 {
+	background: rgba(192, 57, 43, 0.26);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-27 {
+	background: rgba(192, 57, 43, 0.27);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-28 {
+	background: rgba(192, 57, 43, 0.28);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-29 {
+	background: rgba(192, 57, 43, 0.29);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-30 {
+	background: rgba(192, 57, 43, 0.3);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-31 {
+	background: rgba(192, 57, 43, 0.31);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-32 {
+	background: rgba(192, 57, 43, 0.32);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-33 {
+	background: rgba(192, 57, 43, 0.33);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-34 {
+	background: rgba(192, 57, 43, 0.34);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-35 {
+	background: rgba(192, 57, 43, 0.35);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-36 {
+	background: rgba(192, 57, 43, 0.36);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-37 {
+	background: rgba(192, 57, 43, 0.37);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-38 {
+	background: rgba(192, 57, 43, 0.38);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-39 {
+	background: rgba(192, 57, 43, 0.39);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-40 {
+	background: rgba(192, 57, 43, 0.4);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-41 {
+	background: rgba(192, 57, 43, 0.41);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-42 {
+	background: rgba(192, 57, 43, 0.42);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-43 {
+	background: rgba(192, 57, 43, 0.43);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-44 {
+	background: rgba(192, 57, 43, 0.44);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-45 {
+	background: rgba(192, 57, 43, 0.45);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-46 {
+	background: rgba(192, 57, 43, 0.46);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-47 {
+	background: rgba(192, 57, 43, 0.47);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-48 {
+	background: rgba(192, 57, 43, 0.48);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-49 {
+	background: rgba(192, 57, 43, 0.49);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-50 {
+	background: rgba(192, 57, 43, 0.5);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-51 {
+	background: rgba(192, 57, 43, 0.51);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-52 {
+	background: rgba(192, 57, 43, 0.52);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-53 {
+	background: rgba(192, 57, 43, 0.53);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-54 {
+	background: rgba(192, 57, 43, 0.54);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-55 {
+	background: rgba(192, 57, 43, 0.55);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-56 {
+	background: rgba(192, 57, 43, 0.56);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-57 {
+	background: rgba(192, 57, 43, 0.57);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-58 {
+	background: rgba(192, 57, 43, 0.58);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-59 {
+	background: rgba(192, 57, 43, 0.59);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-60 {
+	background: rgba(192, 57, 43, 0.6);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-61 {
+	background: rgba(192, 57, 43, 0.61);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-62 {
+	background: rgba(192, 57, 43, 0.62);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-63 {
+	background: rgba(192, 57, 43, 0.63);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-64 {
+	background: rgba(192, 57, 43, 0.64);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-65 {
+	background: rgba(192, 57, 43, 0.65);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-66 {
+	background: rgba(192, 57, 43, 0.66);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-67 {
+	background: rgba(192, 57, 43, 0.67);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-68 {
+	background: rgba(192, 57, 43, 0.68);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-69 {
+	background: rgba(192, 57, 43, 0.69);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-70 {
+	background: rgba(192, 57, 43, 0.7);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-71 {
+	background: rgba(192, 57, 43, 0.71);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-72 {
+	background: rgba(192, 57, 43, 0.72);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-73 {
+	background: rgba(192, 57, 43, 0.73);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-74 {
+	background: rgba(192, 57, 43, 0.74);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-75 {
+	background: rgba(192, 57, 43, 0.75);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-76 {
+	background: rgba(192, 57, 43, 0.76);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-77 {
+	background: rgba(192, 57, 43, 0.77);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-78 {
+	background: rgba(192, 57, 43, 0.78);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-79 {
+	background: rgba(192, 57, 43, 0.79);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-80 {
+	background: rgba(192, 57, 43, 0.8);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-81 {
+	background: rgba(192, 57, 43, 0.81);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-82 {
+	background: rgba(192, 57, 43, 0.82);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-83 {
+	background: rgba(192, 57, 43, 0.83);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-84 {
+	background: rgba(192, 57, 43, 0.84);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-85 {
+	background: rgba(192, 57, 43, 0.85);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-86 {
+	background: rgba(192, 57, 43, 0.86);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-87 {
+	background: rgba(192, 57, 43, 0.87);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-88 {
+	background: rgba(192, 57, 43, 0.88);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-89 {
+	background: rgba(192, 57, 43, 0.89);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-90 {
+	background: rgba(192, 57, 43, 0.9);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-91 {
+	background: rgba(192, 57, 43, 0.91);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-92 {
+	background: rgba(192, 57, 43, 0.92);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-93 {
+	background: rgba(192, 57, 43, 0.93);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-94 {
+	background: rgba(192, 57, 43, 0.94);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-95 {
+	background: rgba(192, 57, 43, 0.95);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-96 {
+	background: rgba(192, 57, 43, 0.96);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-97 {
+	background: rgba(192, 57, 43, 0.97);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-98 {
+	background: rgba(192, 57, 43, 0.98);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-99 {
+	background: rgba(192, 57, 43, 0.99);
+}
+
+.blood_sample_editor .editor-grid .well.non-empty.blood-volume-100 {
+	background: #c0392b;
 }
 
 .blood_sample_editor .editor-grid .well.empty {

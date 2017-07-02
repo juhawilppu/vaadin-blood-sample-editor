@@ -1,5 +1,6 @@
 package com.juhawilppu.bloodsampleditor.ui.component;
 
+import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
 import com.juhawilppu.bloodsampleditor.backend.entity.StringHelper;
 import com.vaadin.shared.ui.ContentMode;
@@ -15,21 +16,24 @@ public class Well extends VerticalLayout {
 
 	private String row;
 	private int column;
+	private PlateSettings plateSettings;
+
+	/** Sample inside this well. Sample is null if well is empty. **/
 	private Sample sample;
 
 	VerticalLayout round;
 	private Label sampleLabel;
 	private Label volumeLabel;
 
-	public Well(String row, int column) {
+	public Well(String row, int column, PlateSettings plateSettings) {
 
 		this.row = row;
 		this.column = column;
+		this.plateSettings = plateSettings;
 
 		setMargin(false);
 		round = new VerticalLayout();
 		round.setMargin(false);
-		round.addStyleName("well");
 		round.setHeight(90, Unit.PERCENTAGE);
 		round.setWidth(90, Unit.PERCENTAGE);
 		addComponent(round);
@@ -46,7 +50,7 @@ public class Well extends VerticalLayout {
 		round.addComponent(volumeLabel);
 		round.setComponentAlignment(volumeLabel, Alignment.MIDDLE_CENTER);
 
-		round.addStyleName("empty");
+		setWellEmpty();
 	}
 
 	public void setSample(Sample sample) {
@@ -54,8 +58,10 @@ public class Well extends VerticalLayout {
 			throw new IllegalArgumentException("Sample cannot be null");
 
 		this.sample = sample;
-		round.removeStyleName("empty");
-		round.addStyleName("non-empty");
+		round.setStyleName("well non-empty");
+
+		round.addStyleName(WellHelper.getVolumeClass(sample.getVolume(),
+				plateSettings.getMaxVolume()));
 
 		sampleLabel.setValue(
 				StringHelper.breakLineBeforeFirstNumber(sample.getSampleId()));
@@ -75,10 +81,9 @@ public class Well extends VerticalLayout {
 		return column;
 	}
 
-	public void removeSample() {
+	public void setWellEmpty() {
 		this.sample = null;
-		round.removeStyleName("non-empty");
-		round.addStyleName("empty");
+		round.setStyleName("well empty");
 		sampleLabel.setValue("");
 		volumeLabel.setValue("");
 	}

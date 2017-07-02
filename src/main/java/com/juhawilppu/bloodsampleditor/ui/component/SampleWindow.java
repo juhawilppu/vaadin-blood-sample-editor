@@ -143,10 +143,9 @@ public class SampleWindow extends Window {
 				.bind(Sample::getColumn, Sample::setColumn);
 
 		BigDecimalRangeValidator volumeValidator = new BigDecimalRangeValidator(
-				"Must be larger than 0 and less than 100.", BigDecimal.ZERO,
-				new BigDecimal(100));
-		volumeValidator.setMinValueIncluded(false);
-		volumeValidator.setMaxValueIncluded(false);
+				"Must be between 0,00 and " + plateSettings.getMaxVolumeString()
+						+ ".",
+				BigDecimal.ZERO, plateSettings.getMaxVolume());
 		binder.forField(volume)
 				.withConverter(new StringToBigDecimalConverter(BigDecimal.ZERO,
 						"Must be a positive number."))
