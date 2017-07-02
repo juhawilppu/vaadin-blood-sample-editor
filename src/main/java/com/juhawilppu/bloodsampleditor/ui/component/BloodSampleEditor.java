@@ -130,7 +130,7 @@ public class BloodSampleEditor extends VerticalLayout
 	}
 
 	@Override
-	public void save(Sample sample, Well oldWell) {
+	public void moveSample(Sample sample, Well oldWell) {
 		oldWell.setWellEmpty();
 
 		Well newWell = getWell(sample.getRow(), sample.getColumn());

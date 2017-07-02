@@ -45,7 +45,7 @@ public class SampleWindow extends Window {
 	boolean isNew;
 
 	interface SampleWindowListener {
-		public void save(Sample sample, Well well);
+		public void moveSample(Sample sample, Well well);
 
 		public void close(Well well);
 	}
@@ -174,7 +174,7 @@ public class SampleWindow extends Window {
 
 			binder.writeBean(sample);
 			for (SampleWindowListener listener : listeners) {
-				listener.save(sample, well);
+				listener.moveSample(sample, well);
 			}
 			close();
 
