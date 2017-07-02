@@ -29,7 +29,7 @@ public class PlateService {
 		samples.add(
 				new Sample("ID00003", plateId, "H", 4, new BigDecimal(0.01)));
 		samples.add(
-				new Sample("ID00004", plateId, "D", 6, new BigDecimal(0.29)));
+				new Sample("ID00004", plateId, "D", 6, new BigDecimal(0.36)));
 		samples.add(
 				new Sample("ID00005", plateId, "E", 4, new BigDecimal(0.16)));
 		samples.add(
@@ -39,7 +39,7 @@ public class PlateService {
 		samples.add(
 				new Sample("ID00008", plateId, "B", 7, new BigDecimal(0.03)));
 		samples.add(
-				new Sample("ID00009", plateId, "C", 1, new BigDecimal(0.12)));
+				new Sample("ID00009", plateId, "C", 1, new BigDecimal(0.30)));
 		samples.add(
 				new Sample("ID00010", plateId, "F", 12, new BigDecimal(0.17)));
 		samples.add(
