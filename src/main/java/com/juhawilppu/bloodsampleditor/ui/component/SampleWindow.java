@@ -146,6 +146,8 @@ public class SampleWindow extends Window {
 				"Must be between 0,00 and " + plateSettings.getMaxVolumeString()
 						+ ".",
 				BigDecimal.ZERO, plateSettings.getMaxVolume());
+		volumeValidator.setMinValueIncluded(true);
+		volumeValidator.setMaxValueIncluded(true);
 		binder.forField(volume)
 				.withConverter(new StringToBigDecimalConverter(BigDecimal.ZERO,
 						"Must be a positive number."))
