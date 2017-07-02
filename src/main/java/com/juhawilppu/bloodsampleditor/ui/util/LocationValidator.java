@@ -6,6 +6,10 @@ import com.vaadin.data.ValidationResult;
 import com.vaadin.data.Validator;
 import com.vaadin.data.ValueContext;
 
+/**
+ * Validates that the field values must be contained in the predefined list.
+ * LocationValidator is used in validation rows and columns.
+ */
 public class LocationValidator<T> implements Validator<T> {
 
 	List<T> allowedValues;
@@ -20,8 +24,10 @@ public class LocationValidator<T> implements Validator<T> {
 			return ValidationResult.ok();
 		else {
 			String errorMessage = "Value should be between {min} and {max}";
-			errorMessage = errorMessage.replace("{min}", allowedValues.get(0).toString());
-			errorMessage = errorMessage.replace("{max}", allowedValues.get(allowedValues.size() - 1).toString());
+			errorMessage = errorMessage.replace("{min}",
+					allowedValues.get(0).toString());
+			errorMessage = errorMessage.replace("{max}",
+					allowedValues.get(allowedValues.size() - 1).toString());
 			return ValidationResult.error(errorMessage);
 		}
 	}
