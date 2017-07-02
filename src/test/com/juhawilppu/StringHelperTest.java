@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.juhawilppu.bloodsampleditor.backend.entity.StringHelper;
+import com.juhawilppu.bloodsampleditor.ui.util.StringHelper;
 
 public class StringHelperTest {
 

@@ -2,7 +2,7 @@ package com.juhawilppu.bloodsampleditor.ui.component;
 
 import com.juhawilppu.bloodsampleditor.backend.entity.PlateSettings;
 import com.juhawilppu.bloodsampleditor.backend.entity.Sample;
-import com.juhawilppu.bloodsampleditor.backend.entity.StringHelper;
+import com.juhawilppu.bloodsampleditor.ui.util.StringHelper;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Label;

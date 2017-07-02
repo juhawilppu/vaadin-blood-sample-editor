@@ -5,6 +5,8 @@ import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 
+import com.juhawilppu.bloodsampleditor.ui.util.StringHelper;
+
 public class PlateSettings {
 
 	List<String> rows;
