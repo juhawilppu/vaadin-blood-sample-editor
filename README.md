@@ -23,9 +23,9 @@ This application does not use database. The backend data is hardcoded.
 
 ### Front-end
 
-I did not use model-view-presenter pattern because I feel it adds to much overhead to an otherwise simple project.
+I did not use model-view-presenter pattern because I feel it adds too much overhead to an otherwise simple project.
 
-`BloodSampleEditor` is the main UI component. It is the visual representation of a `Plate` object. The view contains a grid (96 well). Each grid cell contains one Well object.
+`BloodSampleEditor` is the main UI component. It is the visual representation of a `Plate` object. The view contains a grid (96 well). Each grid cell contains one Well object, except for top row and left column which are used for showing row and column information.
 
 `Well` is the UI element of a well. The well might be empty or it might contain a `Sample` object. A well can be clicked, which opens a `SampleWindow` modal window.
 
