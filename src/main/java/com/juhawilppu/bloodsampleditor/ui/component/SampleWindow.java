@@ -148,7 +148,8 @@ public class SampleWindow extends Window {
 				BigDecimal.ZERO, plateSettings.getMaxVolume());
 		volumeValidator.setMinValueIncluded(true);
 		volumeValidator.setMaxValueIncluded(true);
-		binder.forField(volume)
+		binder.forField(volume).withValidator(string -> !string.contains("."),
+				"Use comma (,) as decimal separator instead of period (.) symbol.")
 				.withConverter(new StringToBigDecimalConverter(BigDecimal.ZERO,
 						"Must be a positive number."))
 				.withValidator(volumeValidator)
