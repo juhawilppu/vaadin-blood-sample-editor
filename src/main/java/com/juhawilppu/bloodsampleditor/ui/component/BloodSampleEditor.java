@@ -51,17 +51,21 @@ public class BloodSampleEditor extends VerticalLayout
 				.getNumberOfColumns(); column++) {
 			for (int row = 0; row <= plateSettings.getNumberOfRows(); row++) {
 
-				if (column == 0 && row == 0)
+				if (isTopLeft(row, column)) {
+					// Top left corner is empty.
 					continue;
-				if (row == 0 && column > 0)
+				} else if (isTopTitleRow(row, column)) {
+					// Top title row contains the column numbers
 					grid.addComponent(createLabel(column + ""), column, row);
-				else if (column == 0 && row > 0)
+				} else if (isLeftTitleColumn(row, column)) {
+					// Left title column contains the row letters
 					grid.addComponent(
 							createLabel(adapter.convertRowForPlate(row)),
 							column, row);
-				else {
+				} else {
+					// Blood sample well
 					Well well = new Well(adapter.convertRowForPlate(row),
-							column);
+							column, plateSettings);
 					setSize(well);
 					grid.addComponent(well, column, row);
 					well.addLayoutClickListener(event -> {
@@ -73,6 +77,18 @@ public class BloodSampleEditor extends VerticalLayout
 
 		addComponent(grid);
 		setComponentAlignment(grid, Alignment.MIDDLE_CENTER);
+	}
+
+	private boolean isTopLeft(int row, int column) {
+		return row == 0 && column == 0;
+	}
+
+	private boolean isLeftTitleColumn(int row, int column) {
+		return row > 0 && column == 0;
+	}
+
+	private boolean isTopTitleRow(int row, int column) {
+		return row == 0 && column > 0;
 	}
 
 	private void populate() {
@@ -108,13 +124,14 @@ public class BloodSampleEditor extends VerticalLayout
 		UI.getCurrent().addWindow(sampleWindow);
 	}
 
+	@Override
 	public Sample getSample(String row, int column) {
 		return getWell(row, column).getSample();
 	}
 
 	@Override
 	public void save(Sample sample, Well oldWell) {
-		oldWell.removeSample();
+		oldWell.setWellEmpty();
 
 		Well newWell = getWell(sample.getRow(), sample.getColumn());
 		newWell.setSample(sample);
