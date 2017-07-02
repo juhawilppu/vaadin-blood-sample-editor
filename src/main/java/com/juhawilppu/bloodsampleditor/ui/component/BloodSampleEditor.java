@@ -111,7 +111,6 @@ public class BloodSampleEditor extends VerticalLayout
 	}
 
 	private void openDialog(Well well) {
-
 		if (sampleWindow != null) {
 			Notification.show("You can only open one edit window at a time",
 					Type.ERROR_MESSAGE);
@@ -122,6 +121,11 @@ public class BloodSampleEditor extends VerticalLayout
 		sampleWindow = new SampleWindow(well, plateSettings, this);
 		sampleWindow.addSampleWindowListener(this);
 		UI.getCurrent().addWindow(sampleWindow);
+	}
+
+	public Well getWell(String row, int column) {
+		return (Well) grid.getComponent(adapter.convertColumnForGrid(column),
+				adapter.convertRowForGrid(row));
 	}
 
 	@Override
@@ -137,9 +141,12 @@ public class BloodSampleEditor extends VerticalLayout
 		newWell.setSample(sample);
 	}
 
-	public Well getWell(String row, int column) {
-		return (Well) grid.getComponent(adapter.convertColumnForGrid(column),
-				adapter.convertRowForGrid(row));
+	@Override
+	public void addSample(Sample sample, Well well) {
+		Well newWell = getWell(sample.getRow(), sample.getColumn());
+		newWell.setSample(sample);
+
+		plate.getSamples().add(sample);
 	}
 
 	@Override
