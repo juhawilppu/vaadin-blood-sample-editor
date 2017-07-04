@@ -31,6 +31,8 @@ I did not use model-view-presenter pattern because I feel it adds too much overh
 
 `SampleWindow` is used to modify the information of the sample in a well, for example move it to another well or modify the volume. If you click an empty well, you can then use `SampleWindow` to add a new sample to the plate.
 
+`SampleWindowListener` defines actions (end results) for `SampleWindow`. They are the following: Adding a new sample, moving an existing sample or just closing the window without any action. `BloodSampleEditor` will be listening for the actions through this interface.
+
 ### Front-end helper methods
 
 `WellHelper` is used in determining the color of a blood sample. It uses the sample volume and the defined max volume to scale the color.
