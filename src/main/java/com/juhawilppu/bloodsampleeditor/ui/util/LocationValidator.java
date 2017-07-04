@@ -12,7 +12,7 @@ import com.vaadin.data.ValueContext;
  */
 public class LocationValidator<T> implements Validator<T> {
 
-	List<T> allowedValues;
+	private List<T> allowedValues;
 
 	public LocationValidator(List<T> allowedValues) {
 		this.allowedValues = allowedValues;

@@ -4,16 +4,17 @@ import java.util.List;
 
 public class Plate {
 
-	String plateId;
-	List<Sample> samples;	
-	PlateSettings plateSettings;
-	
-	public Plate(String plateId, List<Sample> samples, PlateSettings plateSettings) {
+	private String plateId;
+	private List<Sample> samples;
+	private PlateSettings plateSettings;
+
+	public Plate(String plateId, List<Sample> samples,
+			PlateSettings plateSettings) {
 		this.plateId = plateId;
 		this.samples = samples;
 		this.plateSettings = plateSettings;
 	}
-	
+
 	public Plate() {
 		// JPA constructor
 	}
@@ -37,10 +38,9 @@ public class Plate {
 	public PlateSettings getPlateSettings() {
 		return plateSettings;
 	}
-	
+
 	public void setPlateSettings(PlateSettings plateSettings) {
 		this.plateSettings = plateSettings;
 	}
-
 
 }

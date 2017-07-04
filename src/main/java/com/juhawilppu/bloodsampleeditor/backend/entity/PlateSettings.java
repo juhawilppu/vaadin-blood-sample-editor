@@ -9,9 +9,9 @@ import com.juhawilppu.bloodsampleeditor.ui.util.StringHelper;
 
 public class PlateSettings {
 
-	List<String> rows;
-	List<Integer> columns;
-	BigDecimal maxVolume;
+	private List<String> rows;
+	private List<Integer> columns;
+	private BigDecimal maxVolume;
 
 	public PlateSettings(List<String> rows, List<Integer> columns,
 			BigDecimal maxVolume) {

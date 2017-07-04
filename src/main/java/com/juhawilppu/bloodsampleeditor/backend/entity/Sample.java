@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public class Sample {
 
-	String sampleId;
-	String plateId;
-	String row;
-	int column;
+	private String sampleId;
+	private String plateId;
+	private String row;
+	private int column;
 
 	/** In milliliters. */
 	BigDecimal volume;

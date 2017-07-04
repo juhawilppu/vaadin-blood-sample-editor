@@ -12,7 +12,7 @@ import com.vaadin.ui.UI;
 @Title("Juha Wilppu - Blood Sample Editor")
 public class AppUI extends UI {
 
-	PlateService plateService;
+	private PlateService plateService;
 
 	@Override
 	protected void init(VaadinRequest request) {

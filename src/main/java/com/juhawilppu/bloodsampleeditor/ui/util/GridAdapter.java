@@ -10,7 +10,7 @@ import com.juhawilppu.bloodsampleeditor.backend.entity.PlateSettings;
  */
 public class GridAdapter {
 
-	PlateSettings plateSettings;
+	private PlateSettings plateSettings;
 
 	public GridAdapter(PlateSettings plateSettings) {
 		this.plateSettings = plateSettings;

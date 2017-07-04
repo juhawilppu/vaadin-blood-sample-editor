@@ -28,21 +28,21 @@ import com.vaadin.ui.Window;
  */
 public class SampleWindow extends Window {
 
-	Well well;
-	Sample sample;
+	private Well well;
+	private Sample sample;
 
-	SampleFetcher editor;
-	PlateSettings plateSettings;
+	private SampleFetcher editor;
+	private PlateSettings plateSettings;
 
-	List<SampleWindowListener> listeners;
-	Binder<Sample> binder;
+	private List<SampleWindowListener> listeners;
+	private Binder<Sample> binder;
 
-	TextField sampleId;
-	TextField row;
-	TextField column;
-	TextField volume;
+	private TextField sampleId;
+	private TextField row;
+	private TextField column;
+	private TextField volume;
 
-	boolean isNew;
+	private boolean isNew;
 
 	interface SampleWindowListener {
 		public void addSample(Sample sample, Well well);
