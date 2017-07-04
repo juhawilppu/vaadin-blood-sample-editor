@@ -44,14 +44,6 @@ public class SampleWindow extends Window {
 
 	private boolean isNew;
 
-	interface SampleWindowListener {
-		public void addSample(Sample sample, Well well);
-
-		public void moveSample(Sample sample, Well well);
-
-		public void close(Well well);
-	}
-
 	public SampleWindow(Well well, PlateSettings plateSettings,
 			SampleFetcher editor) {
 
