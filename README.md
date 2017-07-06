@@ -21,7 +21,7 @@ This application does not use database. The backend data is hardcoded.
 `Plate` contains information about a plate. The plate contains 0..* samples, which are in represented in the `Sample` class. Settings for the plate are defined in `PlateSettings` object. It contains information about the number of rows and columns (currently hardcoded to 96 well) and also the max volume of a sample.
 
 
-### Front-end
+### Front-end, UI components
 
 I did not use model-view-presenter pattern because I feel it adds too much overhead to an otherwise simple project.
 
@@ -31,13 +31,13 @@ I did not use model-view-presenter pattern because I feel it adds too much overh
 
 `SampleWindow` is used to modify the information of the sample in a well, for example move it to another well or modify the volume. If you click an empty well, you can then use `SampleWindow` to add a new sample to the plate.
 
-`SampleWindowListener` defines actions (end results) for `SampleWindow`. They are the following: Adding a new sample, moving an existing sample or just closing the window without any action. `BloodSampleEditor` will be listening for the actions through this interface.
+### Front-end, Miscellaneous
 
-### Front-end helper methods
+`SampleWindowListener` defines actions (end results) for `SampleWindow`. They are the following: Adding a new sample, moving an existing sample or just closing the window without any action. `BloodSampleEditor` will be listening for the actions through this interface.
 
 `WellHelper` is used in determining the color of a blood sample. It uses the sample volume and the defined max volume to scale the color.
 
-`GridAdapter` does coordinates mapping between the sample coordinates to the Vaadin `Grid` component cell coordinates. For example, it maps "B1" to "21". Note that rows and columns are mapped separately. It also does the reverse, so "21" will be mapped to "B1".
+`GridAdapter` does coordinates mapping between the sample coordinates to the Vaadin `GridLayout` component cell coordinates. For example, it maps "B1" to "21". Note that rows and columns are mapped separately. It also does the reverse, so "21" will be mapped to "B1".
 
 `LocationValidator` validates that the text field values must be contained in the predefined list. For example, we give the list of accepted rows (A, B, .., H) and the text field value must match one of the items in the list.
 
